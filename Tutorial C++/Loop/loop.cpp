@@ -119,7 +119,7 @@ cout << endl;
 //                             ***
 //                             ****
 //                             *****
-
+#include <iostream>
 #include <iomanip>
 #include <math.h>
 using namespace std;
@@ -143,7 +143,7 @@ cout << endl;
 //                             ***
 //                             **
 //                             *
-
+#include <iostream>
 #include <iomanip>
 #include <math.h>
 using namespace std;
@@ -168,48 +168,195 @@ cout << endl;
 //                              ****
 //                             *****
 
-Bài 8. Tam giác 4
-Input Output
-5 *****
-****
-***
-**
-*
+#include <iostream>
+#include <iomanip>
+#include <math.h>
+using namespace std;
 
-Bài 9. Tam giác 5.
+int main() {
+int n;
+cin >> n;
+for(int i = 1; i <= n; i++) {
+for(int j = 1; j <= n; j++) {
+if(j <= n - i) {
+	cout << " ";
+}else {
+	cout << "*";
+	}
+	}
+cout << endl;
+}
+  return 0;
+}
 
-Input Output
-5 *
-**
-* *
-* *
+// Bài 8. Tam giác 4
+// Input                         Output
+// 5                             *****
+//                                ****
+//                                 ***
+//                                  **
+//                                   *
 
-5
-*****
+#include <iostream>
+#include <iomanip>
+#include <math.h>
+using namespace std;
 
-Bài 10. Tam giác 6
-Input Output
-5 *
-***
-*****
-*******
-*********
+int main() {
+int n;
+cin >> n;
+for(int i = 1; i <= n; i++) {
+for(int j = 1; j <= n; j++) {
+if(j < i) {
+	cout << " ";
+}else {
+	cout << "*";
+	}
+	}
+cout << endl;
+}
+  return 0;
+}
 
-Bài 11. Tam giác 7.
-Input Output
-5 *
-* *
-* *
-* *
-*********
+// Bài 9. Tam giác 5.
 
-Bài 12. Tam giác 8.
-Input Output
-5 *********
-*******
-*****
-***
-*
+// Input                          Output
+// 5                              *
+//                                **
+//                                * *
+//                                *  *
+//                                *****
+
+#include <iostream>
+#include <iomanip>
+#include <math.h>
+using namespace std;
+
+int main() {
+int n;
+cin >> n;
+for(int i = 1; i <= n; i++) {
+for(int j = 1; j <= i; j++) {
+if(j == 1 || i == n || j ==i || i == 1 ) {
+	cout << "*";
+}else {
+	cout << " ";
+	}
+	}
+cout << endl;
+}
+  return 0;
+}
+
+// Bài 10. Tam giác 6
+// Input                             Output
+// 5                               1234*
+//                                 123***
+//                                 12*****
+//                                 1*******
+//                                 *********
+        C1
+#include <iostream>
+#include <iomanip>
+#include <math.h>
+using namespace std;
+
+int main() {
+int n;
+cin >> n;
+for(int i = 1; i <= n; i++) {
+for(int j = 1; j <= n - i; j++) {
+cout << " ";
+	}
+for(int j = 1;j <= 2 * i - 1;j++){
+	cout << "*";
+	}
+cout << endl;
+}
+  return 0;
+}
+
+       C2
+#include <iostream>
+#include <iomanip>
+#include <math.h>
+using namespace std;
+
+int main() {
+int n;
+cin >> n;
+for(int i = 1; i <= n; i++) {
+for(int j = 1; j <= n + i - 1; j++) {
+if(j <= n - i){
+	cout << " ";
+	}else {
+	cout << "*";
+	
+	}
+}
+cout << endl;
+}
+  return 0;
+}
+// Bài 11. Tam giác 7.
+// Input                 Output
+// 5                   1234*
+//                     123*5*
+//                     12*   *
+//                     1*     *
+//                     *********
+
+#include <iostream>
+#include <iomanip>
+#include <math.h>
+using namespace std;
+
+int main() {
+int n;
+cin >> n;
+for(int i = 1; i <= n; i++) {
+for(int j = 1; j <= n - i; j++) {
+cout << " ";
+}
+for(int j = 1; j <= 2 * i - 1; j++) {
+if(i == 1|| i == n|| j == 1|| j == 2*i-1){
+	cout << "*";
+	} else {
+		cout << " ";
+	}
+}
+cout << endl;
+}
+  return 0;
+}
+
+// Bài 12. Tam giác 8.
+// Input                          Output
+// 5                             *********
+//                                *******
+//                                 *****
+//                                  ***
+//                                   *
+
+#include <iostream>
+#include <iomanip>
+#include <math.h>
+using namespace std;
+
+int main() {
+int n;
+cin >> n;
+for(int i = 1; i <= n; i++) {
+for(int j = 1; j < i; j++) {
+cout << " ";
+}
+for(int j = 1; j <= 2 * (n -i +1)-1; j++){
+	cout << "*";
+	}
+cout << endl;
+}
+  return 0;
+}
 
 Bài 13. Đường chéo 1.
 Input Output
