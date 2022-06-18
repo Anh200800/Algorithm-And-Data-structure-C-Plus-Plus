@@ -243,27 +243,55 @@ cout << fixed << setprecision(2) << res;
   return 0;
 }
 
-Bài 11. Tính tổng 4
-Sn = 2 + 4 + 6 + 8 + ... + 2*n
-Input
-Số nguyên dương n. ( 1 ≤ n ≤ 109
-).
+// Bài 11. Tính tổng 4
+// Sn = 2 + 4 + 6 + 8 + ... + 2*n
+// Input
+// Số nguyên dương n. ( 1 ≤ n ≤ 109).
+// Output
+// Kết quả của bài toán
+// Input               Output
+// 1000000            1000001000000
+// 3                      12
 
-Output
-Kết quả của bài toán
-Input Output
-1000000 1000001000000
-3 12
+#include <iostream>
+#include <iomanip>
+#include <math.h>
+using namespace std;
 
-Bài 12. Tính tổng 5
-Sn = -1 + 2 - 3 + 4 - 5 + 6 + .... + (-1)nn
-Input
-Số nguyên dương n. ( 1 ≤ n ≤ 1016).
-Output
-Kết quả của bài toán
-Ví dụ
-Input Output
-10000000000000000 5000000000000000
+int main() {
+int n;
+cin >> n;
+long long S = 1ll * n * ( n + 1);
+cout << S;
+  return 0;
+}
+
+// Bài 12. Tính tổng 5
+// Sn = -1 + 2 - 3 + 4 - 5 + 6 + .... + (-1)nn
+// Input
+// Số nguyên dương n. ( 1 ≤ n ≤ 1016).
+// Output
+// Kết quả của bài toán
+// Ví dụ
+// Input                            Output
+// 10000000000000000            5000000000000000
+
+#include <iostream>
+#include <iomanip>
+#include <math.h>
+using namespace std;
+
+int main() {
+long long n;
+cin >> n;
+if(n % 2 == 0){
+cout << n / 2 << endl;
+} else {
+	cout << (-n -1) / 2 << endl;
+}
+
+  return 0;
+}
 
 Bài 13. Số chia hết lớn nhất
 Cho 2 số nguyên dương a và b. Tìm số chia hết cho b lớn nhất và không vượt qua a. Chú
@@ -277,9 +305,22 @@ Input
 Output
 Kết quả của bài toán
 Ví dụ
-Input Output
-19 5 15
-20 5 20
+Input                    Output
+19 5                      15
+20 5                      20
+
+#include <iostream>
+#include <iomanip>
+#include <math.h>
+using namespace std;
+
+int main() {
+int a, b;
+cin >> a >> b;
+int S = (a / b) * b;
+cout << S;
+  return 0;
+}
 
 Bài 14. Số chia hết nhỏ nhất
 Cho 2 số nguyên dương a và b. Tìm số chia hết cho b nhỏ nhất và lớn hơn hoặc bằng a.
@@ -291,10 +332,23 @@ Input
 Output
 Kết quả của bài toán
 Ví dụ
-Input Output
-19 5 20
-20 5 20
-21 5 25
+Input             Output
+19 5                20
+20 5                20
+21 5                25
+
+#include <iostream>
+#include <iomanip>
+#include <math.h>
+using namespace std;
+
+int main() {
+int a, b;
+cin >> a >> b;
+int S = (a + b - 1) / b * b;
+cout << S;
+  return 0;
+}
 
 Bài 15. Kiểm tra số chẵn lẻ.
 Input
@@ -302,11 +356,27 @@ Số nguyên n. (-1018 ≤ n ≤ 1018)
 Output
 In ra 0 nếu n là số chẵn, 1 nếu n là số lẻ
 Ví dụ
-Input Output
-20 0
-51 1
+Input       Output
+20             0
+51             1
 
-9
+#include <iostream>
+#include <iomanip>
+#include <math.h>
+using namespace std;
+
+int main() {
+int n;
+cin >> n;
+if( n % 2 == 0) {
+	cout << 0;
+	} else {
+		cout << 1;
+		}
+
+  return 0;
+}
+
 Bài 16. Kiểm tra số chia hết cho 3 và 5
 Input
 Số nguyên n. (-1018 ≤ n ≤ 1018)
@@ -317,6 +387,22 @@ Input Output
 30 1
 25 0
 
+#include <iostream>
+#include <iomanip>
+#include <math.h>
+using namespace std;
+
+int main() {
+int n;
+cin >> n;
+if( n % 3 == 0 && n % 5 == 0) {       //n % 15
+	cout << 1;
+	} else {
+		cout << 0;
+		}
+
+  return 0;
+}
 Bài 17. Kiểm tra năm nhuận
 Năm nhuận là năm chia hết cho 400 hoặc ( chia hết cho 4 và không chia hết cho 100).
 Input
@@ -327,10 +413,10 @@ Output
 In ra INVALID nếu n là một số nguyên âm hoặc số 0. Nếu n là năm nhuận, in ra YES,
 ngược lại in ra NO
 Ví dụ
-Input Output
-2021 NO
-2020 YES
--1982 INVALID
+Input           Output
+2021             NO
+2020             YES
+-1982          INVALID
 
 Bài 18. In ra số ngày của tháng
 Input
