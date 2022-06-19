@@ -377,15 +377,15 @@ if( n % 2 == 0) {
   return 0;
 }
 
-Bài 16. Kiểm tra số chia hết cho 3 và 5
-Input
-Số nguyên n. (-1018 ≤ n ≤ 1018)
-Output
-In ra 1 nếu n chia hết cho cả 3 và 5, ngược lại in ra 0
-Ví dụ
-Input Output
-30 1
-25 0
+// Bài 16. Kiểm tra số chia hết cho 3 và 5
+// Input
+// Số nguyên n. (-1018 ≤ n ≤ 1018)
+// Output
+// In ra 1 nếu n chia hết cho cả 3 và 5, ngược lại in ra 0
+// Ví dụ
+// Input               Output
+// 30                    1
+// 25                    0
 
 #include <iostream>
 #include <iomanip>
@@ -403,191 +403,413 @@ if( n % 3 == 0 && n % 5 == 0) {       //n % 15
 
   return 0;
 }
-Bài 17. Kiểm tra năm nhuận
-Năm nhuận là năm chia hết cho 400 hoặc ( chia hết cho 4 và không chia hết cho 100).
-Input
-Năm là một số nguyên. (-106 ≤ n ≤ 106
-)
+// Bài 17. Kiểm tra năm nhuận
+// Năm nhuận là năm chia hết cho 400 hoặc ( chia hết cho 4 và không chia hết cho 100).
+// Input
+// Năm là một số nguyên. (-106 ≤ n ≤ 106)
+// Output
+// In ra INVALID nếu n là một số nguyên âm hoặc số 0. Nếu n là năm nhuận, in ra YES,
+// ngược lại in ra NO
+// Ví dụ
+// Input           Output
+// 2021             NO
+// 2020             YES
+// -1982          INVALID
 
-Output
-In ra INVALID nếu n là một số nguyên âm hoặc số 0. Nếu n là năm nhuận, in ra YES,
-ngược lại in ra NO
-Ví dụ
-Input           Output
-2021             NO
-2020             YES
--1982          INVALID
+#include <iostream>
+using namespace std;
+int main() {
+  int n;
+  cin >> n;
+  if(n <= 0) {
+  	cout << "INVALID" << endl;
+  	} else if(n % 400 == 0 || n % 4 == 0 && n % 100 != 0) {
+  		cout << "YES";
+  		} else {
+  				cout << "NO";
+  			}
+  return 0;
+}
 
-Bài 18. In ra số ngày của tháng
-Input
-2 số nguyên t, n lần lượt là tháng và năm. (-106 ≤ t, n ≤ 106
-)
+// Bài 18. In ra số ngày của tháng
+// Input
+// 2 số nguyên t, n lần lượt là tháng và năm. (-106 ≤ t, n ≤ 106
+// )
 
-Output
-Nếu tháng và năm nhập vào không hợp lệ ( tháng, năm không phải là số dương, tháng
-không năm trong các số từ 1 tới 12) in ra INVALID, ngược lại in ra số ngày trong năm.
-Chú ý tháng 2 của năm nhuận có 29 ngày
-Ví dụ
-Input Output
+// Output
+// Nếu tháng và năm nhập vào không hợp lệ ( tháng, năm không phải là số dương, tháng
+// không năm trong các số từ 1 tới 12) in ra INVALID, ngược lại in ra số ngày trong năm.
+// Chú ý tháng 2 của năm nhuận có 29 ngày
+// Ví dụ
+// Input                          Output
+// 2 2021                          28
+// 1 2021                          31
+// 14 2020                       INVALID
+// -1 2019                       INVALID
+// 2 2020                           29
 
-10
-2 2021 28
-1 2021 31
-14 2020 INVALID
--1 2019 INVALID
-2 2020 29
+#include <iostream>
+using namespace std;
+int main() {
+  int t , n;
+  cin >> t >> n;
+  if(t <= 0 || t  > 12 || n <= 0) {
+  cout << "INVALID";
+  	} else if(t == 1 || t == 3 || t == 5 || t == 7 || t == 8 || t == 10 || t == 12){
+  		cout << "31";
+  		}else if(t == 4 || t == 6 || t == 9 || t == 11){
+  		cout << "30";
+  		} else if(n % 400 == 0 || n % 4 == 0 && n % 100 != 0){
+  		cout << "29";
+  		} else {
+  			cout << "28";
+}
+  return 0;
+}
 
-Bài 19. Kiểm tra chữ in thường
-Input
-Kí tự cần kiểm tra
-Output
-In ra YES nếu kí tự nhập vào là chữ cái in thường, NO trong trường hợp ngược lại
-Ví dụ
-Input Output
-A NO
-a YES
-% NO
+// Bài 19. Kiểm tra chữ in thường
+// Input
+// Kí tự cần kiểm tra
+// Output
+// In ra YES nếu kí tự nhập vào là chữ cái in thường, NO trong trường hợp ngược lại
+// Ví dụ
+// Input               Output
+// A                     NO
+// a                     YES
+// %                     NO
 
-Bài 20. Kiểm tra in hoa
-Input
-Kí tự cần kiểm tra
-Output
-In ra YES nếu kí tự nhập vào là chữ cái in hoa, NO trong trường hợp ngược lại
-Ví dụ
-Input Output
-A YES
-a NO
-% NO
+#include <iostream>
+using namespace std;
+//a - z: 97 - 122
+//A - Z: 65 - 90
+//0 - 9: 48 - 57
+int main() {
+  char c ;
+  cin >> c;
+  if(c >= 97 && c <= 122) {
+  	cout << "YES";
+  	} else {
+	  cout << "NO";}
 
-Bài 21. Kiểm tra chữ cái
-Input
-Kí tự cần kiểm tra
-Output
-In ra YES nếu kí tự nhập vào là chữ cái, NO trong trường hợp ngược lại
+  return 0;
+}
 
-11
 
-Ví dụ
-Input Output
-A YES
-a YES
-% NO
-1 NO
+// Bài 20. Kiểm tra in hoa
+// Input
+// Kí tự cần kiểm tra
+// Output
+// In ra YES nếu kí tự nhập vào là chữ cái in hoa, NO trong trường hợp ngược lại
+// Ví dụ
+// Input                       Output
+// A                            YES
+// a                             NO
+// %                             NO
 
-Bài 22. Kiểm tra chữ số
-Input
-Kí tự cần kiểm tra
-Output
-In ra YES nếu kí tự nhập vào là chữ số, NO trong trường hợp ngược lại
-Ví dụ
-Input Output
-A NO
-a NO
-5 YES
+#include <iostream>
+using namespace std;
+//a - z: 97 - 122
+//A - Z: 65 - 90
+//0 - 9: 48 - 57
+int main() {
+  char c ;
+  cin >> c;
+  if(c >= 'A' && c <= 'Z') {
+  	cout << "YES";
+  	} else {
+	  cout << "NO";}
 
-Bài 23. Chuyển ký tự hoa thành thường
-Input
-Kí tự cần chuyển
-Output
-Nếu kí tự nhập vào là chữ in hoa, in ra dạng in thường tương ứng của nó. Trong trường
-hợp kí tự nhập vào không phải là chữ in hoa thì không thay đổi kí tự ban đầu.
-Ví dụ
-Input Output
-A a
-a a
-% %
+  return 0;
+}
 
-Bài 24. Chuyển kí tự thường thành kí tự hoa
-Input
-Kí tự cần chuyển
+// Bài 21. Kiểm tra chữ cái
+// Input
+// Kí tự cần kiểm tra
+// Output
+// In ra YES nếu kí tự nhập vào là chữ cái, NO trong trường hợp ngược lại
 
-12
+// Ví dụ
+// Input                    Output
+// A                         YES
+// a                         YES
+// %                         NO
+// 1                         NO
 
-Output
-Nếu kí tự nhập vào là chữ in thường, in ra dạng in hoa tương ứng của nó. Trong trường
-hợp kí tự nhập vào không phải là chữ in thường thì không thay đổi kí tự ban đầu.
-Ví dụ
-Input Output
-A A
-a A
-% %
+#include <iostream>
+using namespace std;
+//a - z: 97 - 122
+//A - Z: 65 - 90
+//0 - 9: 48 - 57
+int main() {
+  char c ;
+  cin >> c;
+  if(c >= 'A' && c <= 'Z' || c >= 'a' && c <= 'z' ) {
+  	cout << "YES";
+  	} else {
+	  cout << "NO";}
 
-Bài 25. Chữ cái kế tiếp
-Input
-Kí tự duy nhất
-Output
-Nếu kí tự nhập vào là chữ cái, tiến hành in ra chữ cái kế tiếp của nó trong bảng chữ cái ở
-dạng in thường, ta coi chữ cái kế tiếp của z là a. Nếu kí tự nhập vào không phải là chữ cái
-in ra INVALID.
-Ví dụ
-Input Output
-A b
-Z a
-l m
-$ INVALID
+  return 0;
+}
 
-Bài 26. Số lớn, số nhỏ
-Input
-3 số nguyên a, b, c (-106 ≤ a, b, c ≤ 106
-)
+// Bài 22. Kiểm tra chữ số
+// Input
+// Kí tự cần kiểm tra
+// Output
+// In ra YES nếu kí tự nhập vào là chữ số, NO trong trường hợp ngược lại
+// Ví dụ
+// Input             Output
+// A                   NO
+// a                   NO
+// 5                   YES
 
-Output
-In ra số lớn nhất và nhỏ nhất trong 3 số
-Ví dụ
-Input Output
-1 2 3 3 1
-1 1 1 1 1
+#include <iostream>
+using namespace std;
+//a - z: 97 - 122
+//A - Z: 65 - 90
+//0 - 9: 48 - 57
+int main() {
+  char c ;
+  cin >> c;
+  if(c >= '0' && c <= '9'  ) {
+  	cout << "YES";
+  	} else {
+	  cout << "NO";}
 
-13
+  return 0;
+}
 
-Bài 27. Tam giác hợp lệ
-Input
-a, b, c là độ dài 3 cạnh của tam giác. a, b, c là các số nguyên (-106 ≤ a, b, c ≤ 106
-)
+// Bài 23. Chuyển ký tự hoa thành thường
+// Input
+// Kí tự cần chuyển
+// Output
+// Nếu kí tự nhập vào là chữ in hoa, in ra dạng in thường tương ứng của nó. Trong trường
+// hợp kí tự nhập vào không phải là chữ in hoa thì không thay đổi kí tự ban đầu.
+// Ví dụ
 
-Output
-In ra YES nếu tam giác nhập vào là hợp lệ, ngược lại in NO
-Ví dụ
-Input Output
-3 4 5 YES
-1 1 5 NO
--1 2 3 NO
-0 4 5 NO
+// Input             Output
+// A                    a
+// a                    a
+// %                    %
 
-Bài 28. Kiểm tra tam giác
-Input
-a, b, c là độ dài 3 cạnh của tam giác. a, b, c là các số nguyên (-106 ≤ a, b, c ≤ 106
-)
+#include <iostream>
+using namespace std;
+//a - z: 97 - 122
+//A - Z: 65 - 90
+//0 - 9: 48 - 57
+int main() {
+  char c ;
+  cin >> c;
+  if(c >= 'A' && c <= 'Z'  ) {
+  	c += 32;
+  	} 
+  	cout << c;
+	  
 
-Output
-In ra INVALID tam giác đã cho không hợp lệ
-In ra 1 nếu tam giác là tam giác đều
-In ra 2 nếu tam giác là tam giác cân
-In ra 3 nếu tam giác là tam giác vuông
-In ra 4 nếu tam giác là tam giác vuông cân
-In ra 5 nếu tam giác là tam giác thường.
-Ví dụ
-Input Output
-3 4 5 3
-3 3 3 1
-1 1 8 INVALID
-4 4 6 2
+  return 0;
+}
 
-Bài 29. Chuyển đổi ngày sang tháng, năm, ngày
-Viết chương trình C cho phép nhập vào số ngày, thực hiện chuyển số ngày sang
-năm, tuần, ngày (Bỏ qua trường hợp năm nhuận)
+// Bài 24. Chuyển kí tự thường thành kí tự hoa
+// Input
+// Kí tự cần chuyển
+// Output
+// Nếu kí tự nhập vào là chữ in thường, in ra dạng in hoa tương ứng của nó. Trong trường
+// hợp kí tự nhập vào không phải là chữ in thường thì không thay đổi kí tự ban đầu.
+// Ví dụ
+// Input                        Output
+// A                              A
+// a                              A
+// %                              %
 
-14
+#include <iostream>
+using namespace std;
+//a - z: 97 - 122
+//A - Z: 65 - 90
+//0 - 9: 48 - 57
+int main() {
+  char c ;
+  cin >> c;
+  if(c >= 'a' && c <= 'z'  ) {
+  	c -= 32;
+  	} 
+  	cout << c;
+	  
 
-Input
-Số nguyên n không âm. (0 ≤ n ≤ 106
-)
+  return 0;
+}
 
-Output
-Chuyển số ngày đã cho xem số năm, số tháng, số ngày
-Ví dụ
-Input Output
-373 1 1 1
+// Bài 25. Chữ cái kế tiếp
+// Input
+// Kí tự duy nhất
+// Output
+// Nếu kí tự nhập vào là chữ cái, tiến hành in ra chữ cái kế tiếp của nó trong bảng chữ cái ở
+// dạng in thường, ta coi chữ cái kế tiếp của z là a. Nếu kí tự nhập vào không phải là chữ cái
+// in ra INVALID.
+// Ví dụ
+// Input                Output
+// A                      b
+// Z                      a
+// l                      m
+// $                   INVALID
+
+#include <iostream>
+using namespace std;
+//a - z: 97 - 122
+//A - Z: 65 - 90
+//0 - 9: 48 - 57
+int main() {
+  char c ;
+  cin >> c;
+  if(c >= 'A' && c <= 'Z' || c >= 'a' && c <= 'z' ) {
+  if(c == 'z' || c == 'Z') {
+   cout << "a" << endl;
+  	} else if (c >= 'A' && c < 'Z'){
+	
+	  	c += 32;
+	  	  ++c;
+	  cout << c << endl;
+	  }
+	
+	  
+	  } else {
+	  	cout << "INVALID";}
+	  
+
+  return 0;
+}
+
+// Bài 26. Số lớn, số nhỏ
+// Input
+// 3 số nguyên a, b, c (-106 ≤ a, b, c ≤ 106
+// )
+
+// Output
+// In ra số lớn nhất và nhỏ nhất trong 3 số
+// Ví dụ
+// Input                     Output
+// 1 2 3                     3 1
+// 1 1 1                     1 1
+
+#include <iostream>
+using namespace std;
+//a - z: 97 - 122
+//A - Z: 65 - 90
+//0 - 9: 48 - 57
+int main() {
+  int a, b, c ;
+  cin >> a >> b >> c;
+  int min = a, max = a;
+  if(b < min) min = b;
+    if(c < min) min = c;
+      if(b > max) max = b;
+        if(c > max) max = c;
+        cout << max << " " << min << endl;
+  return 0;
+}
+
+
+// Bài 27. Tam giác hợp lệ
+// Input
+// a, b, c là độ dài 3 cạnh của tam giác. a, b, c là các số nguyên (-106 ≤ a, b, c ≤ 106)
+// Output
+// In ra YES nếu tam giác nhập vào là hợp lệ, ngược lại in NO
+// Ví dụ
+// Input                               Output
+// 3 4 5                                YES
+// 1 1 5                                NO
+// -1 2 3                               NO
+// 0 4 5                                NO
+
+#include <iostream>
+using namespace std;
+//a - z: 97 - 122
+//A - Z: 65 - 90
+//0 - 9: 48 - 57
+int main() {
+  int a, b, c ;
+  cin >> a >> b >> c;
+  if(a > 0 && b > 0 && c > 0 && a + b > c && a + c > b && b + c > a ){
+  	cout << "YES";
+  } else {
+  cout << "NO";
+  }
+  
+  return 0;
+}
+
+// Bài 28. Kiểm tra tam giác
+// Input
+// a, b, c là độ dài 3 cạnh của tam giác. a, b, c là các số nguyên (-106 ≤ a, b, c ≤ 106
+// )
+
+// Output
+// In ra INVALID tam giác đã cho không hợp lệ
+// In ra 1 nếu tam giác là tam giác đều
+// In ra 2 nếu tam giác là tam giác cân
+// In ra 3 nếu tam giác là tam giác vuông
+// In ra 4 nếu tam giác là tam giác vuông cân
+// In ra 5 nếu tam giác là tam giác thường.
+// Ví dụ
+// Input                               Output
+// 3 4 5                                 3
+// 3 3 3                                 1
+// 1 1 8                              INVALID
+// 4 4 6                                 2
+
+#include <iostream>
+using namespace std;
+//a - z: 97 - 122
+//A - Z: 65 - 90
+//0 - 9: 48 - 57
+int main() {
+  int a, b, c ;
+  cin >> a >> b >> c;
+  if(a > 0 && b > 0 && c > 0 && a + b > c && a + c > b && b + c > a ){
+  	if(a==b && b == c){
+  		cout << 1 << endl;
+  		} else if(a == b || a == c || b == c){
+  			if(a*a == b*b + c*c || b*b == a*a + c*c || c*c == a*a + b*b){
+  				cout << 4 << endl;
+  				} else {
+				  cout << 2 << endl;
+				  }
+  			} else if (a*a == b*b + c*c || b*b == a*a + c*c || c*c == a*a + b*b){
+  				cout << 3 << endl;
+  				} else {
+				  cout << 5 << endl;}
+  } else {
+  cout << "INVALID";
+  }
+  
+  return 0;
+}
+
+// Bài 29. Chuyển đổi ngày sang tháng, năm, ngày
+// Viết chương trình C cho phép nhập vào số ngày, thực hiện chuyển số ngày sang
+// năm, tuần, ngày (Bỏ qua trường hợp năm nhuận)
+// Input
+// Số nguyên n không âm. (0 ≤ n ≤ 106)
+// Output
+// Chuyển số ngày đã cho xem số năm, số tháng, số ngày
+// Ví dụ
+// Input                                     Output
+// 373                                       1 1 1
+
+#include <iostream>
+using namespace std;
+//a - z: 97 - 122
+//A - Z: 65 - 90
+//0 - 9: 48 - 57
+int main() {
+  int n;
+  cin >> n;
+ int nam = n / 365;
+ int du = n % 365;
+ int tuan = du / 7;
+ int ngay = du % 7;
+ cout << nam << " " << tuan << " " << ngay << endl;
+  return 0;
+}
+
 
 Bài 30. Phương trình bậc 2
 Phương trình bậc 2 là phương trình dạng ax2 + bx + c = 0.
