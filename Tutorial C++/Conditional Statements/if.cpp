@@ -811,15 +811,56 @@ int main() {
 }
 
 
-Bài 30. Phương trình bậc 2
-Phương trình bậc 2 là phương trình dạng ax2 + bx + c = 0.
-Viết chương trình C cho phép nhập vào a,b,c và thực hiện giải phương trình bậc 2.
-Nếu vô nghiệm thì in ra dòng NO, nếu vô số nghiệm thì in ra INF
-Nếu có nghiệm thì in các nghiệm (luôn lấy 2 chữ số thập phân sau dấu chấm phẩy)
-cách nhau một khoảng trắng.
-Input Output
-8 -4 -2 0.81 -0.31
+// Bài 30. Phương trình bậc 2
+// Phương trình bậc 2 là phương trình dạng ax2 + bx + c = 0.
+// Viết chương trình C cho phép nhập vào a,b,c và thực hiện giải phương trình bậc 2.
+// Nếu vô nghiệm thì in ra dòng NO, nếu vô số nghiệm thì in ra INF
+// Nếu có nghiệm thì in các nghiệm (luôn lấy 2 chữ số thập phân sau dấu chấm phẩy)
+// cách nhau một khoảng trắng.
+// Input Output
+// 8 -4 -2 0.81 -0.31
 
+#include <iostream>
+#include <conio.h>
+#include <math.h>
+using namespace std;
+ 
+int main()
+{
+ 
+    float a, b, c, delta, x1, x2;
+    cout << "Nhap a = ";
+    cin >> a;
+    cout << "Nhap b = ";
+    cin >> b;
+    cout << "Nhap c = ";
+    cin >> c;
+    if(a == 0) {
+        // a== 0 phuong trinh tro thanh phuong trinh bac mot bx + c = 0
+        if(b == 0) {
+            if (c == 0) {
+                cout << "Phuong trinh vo so nghiem" << endl;
+            } else {
+                cout << "Phuong trinh vo nghiem" << endl;
+            }
+        } else {
+            cout << "Phuong trinh co nghiem duy nhat: " << -c/b << endl;
+        }
+    } else {
+        delta = b*b - 4*a*c;
+        if(delta > 0) {
+            x1 = (-b+sqrt(delta))/(2*a);
+            x2 = (-b-sqrt(delta))/(2*a);
+            cout << "Nghiem thu nhat x1 = " << x1 << endl;
+            cout << "Nghiem thu hai x2 = " << x2 << endl;
+        } else if ( delta == 0) {
+            cout << "Phuong trinh co nghiem kep: x1 = x2 = " << -b/2*a << endl;
+        } else {
+            cout << "Phuong trinh vo nghiem" << endl;
+        }
+    }
+    return 0;
+}
 Bài 31. Goldbach
 Một cách để tạo ra các bài toán là học từ toán học. Bạn có thể tạo một số câu lệnh
 toán học ngẫu nhiên hoặc sửa đổi một số định lý để có được một cái gì đó mới và

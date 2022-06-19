@@ -358,183 +358,536 @@ cout << endl;
   return 0;
 }
 
-Bài 13. Đường chéo 1.
-Input Output
-5 *~~~~
-**~~~
-***~~
-****~
-*****
+// Bài 13. Đường chéo 1.
+// Input                          Output
+// 5                              *~~~~
+//                                **~~~
+//                                ***~~
+//                                ****~
+//                                *****
+       C1
+#include <iostream>
+#include <iomanip>
+#include <math.h>
+using namespace std;
 
-Bài 14. Đường chéo 2.
-Input Output
-5 *****
-****~
-***~~
-**~~~
+int main() {
+int n;
+cin >> n;
+for(int i = 1; i <= n; i++) {
+for(int j = 1; j <= i; j++) {
+cout << "*";
+}
+for(int j = 1; j <= n - i; j++) {
+cout << "~";
+}
+cout << endl;
+}
+  return 0;
+}
 
-6
-*~~~~
+      C2
+#include <iostream>
+#include <iomanip>
+#include <math.h>
+using namespace std;
 
-Bài 15. Hình bình hành.
-Input Output
-4 5 *****
-~*****
-~~*****
-~~~*****
+int main() {
+int n;
+cin >> n;
+for(int i = 1; i <= n; i++) {
+for(int j = 1; j <= n; j++) {
+if(j <= i){
+cout << "*";
+} else {
+cout << "~";}
+}
 
+cout << endl;
+}
+  return 0;
+}
+
+// Bài 14. Đường chéo 2.
+// Input                                Output
+                                            5
+// 5                                    *****1
+//                                      ****~2
+//                                      ***~~3
+//                                      **~~~4
+//                                      *~~~~5
+
+
+#include <iostream>
+#include <iomanip>
+#include <math.h>
+using namespace std;
+
+int main() {
+int n;
+cin >> n;
+for(int i = 1; i <= n; i++) {
+for(int j = 1; j <= n; j++) {
+if(j <= n + 1 -i){
+cout << "*";
+} else {
+cout << "~";}
+}
+
+cout << endl;
+}
+  return 0;
+}
+
+// Bài 15. Hình bình hành.
+// Input                    Output
+// 4 5                      *****
+//                          ~*****
+//                          ~~*****
+//                          ~~~*****
+
+#include <iomanip>
+#include <math.h>
+using namespace std;
+
+int main() {
+int n, m;
+cin >> n >> m;
+for(int i = 1; i <= n; i++) {
+for(int j = 1; j <= i - 1; j++) {
+cout << "~";
+}
+for(int j = 1; j <= m; j++) {
+cout << "*";
+}
+cout << endl;
+}
+  return 0;
+}
 Bài 16. Hình chữ nhật 5
-Input Output
-5 ~~~~*
-~~~**
-~~* *
-~* *
-*****
+Input                               Output
+5                                   ~~~~*
+                                    ~~~**
+                                    ~~* *
+                                    ~*  *
+                                    *****
 
+#include <iostream>
+#include <iomanip>
+#include <math.h>
+using namespace std;
+
+int main() {
+int n;
+cin >> n;
+for(int i = 1; i <= n; i++) {
+for(int j = 1; j <= n; j++) {
+if(j <= n - i){
+cout << "~";
+} else if(i == 1 || i == n || j == n- i + 1 || j == n){
+cout << "*";
+} else {
+cout << " ";
+}
+}
+cout << endl;
+}
+  return 0;
+}
 Bài 17. Hình thoi
+Input            Output
+5                *
+                 **
+                 ***
+                 ****
+                 *****
+                 ****
+                 ***
+                 **
+                 *
+
+#include <iostream>
+#include <iomanip>
+#include <math.h>
+using namespace std;
+
+int main() {
+int n;
+cin >> n;
+for(int i = 1; i <= n; i++) {
+for(int j = 1; j <= i; j++) {
+cout << "*";
+}
+cout << endl;
+}
+for(int i = n - 1; i >= 1; i--) {
+	for(int j = 1; j<= i; j++){
+	cout << "*";
+	}
+	cout << endl;
+	}
+  return 0;
+}				 
 
 Bài 18. Hình thoi 2
-Input Output
-5 ~~~~*
-~~~***
-~~*****
-~*******
-5 *
-**
-***
-****
-*****
-****
-***
-**
-*
+Input              Output
+5                   ~~~~*
+                    ~~~***
+                    ~~*****
+                    ~*******
+                    *********
+                    ~******* 
+                    ~~*****
+                    ~~~***
+                    ~~~~*
 
-7
-*********
-~*******
-~~*****
-~~~***
-~~~~*
+#include <iostream>
+#include <iomanip>
+#include <math.h>
+using namespace std;
 
-Bài 19. Hình thoi 3
-Input Output
-5 **********
-****~~****
-***~~~~***
-**~~~~~~**
-*~~~~~~~~*
-**~~~~~~**
-***~~~~***
-****~~****
-**********
+int main() {
+int n;
+cin >> n;
+for(int i = 1; i <= n; i++) {
+for(int j = 1; j <= n - i; j++) {
+cout << "~";
+}
+for(int j = 1; j <= 2 * i - 1; j++) {
+cout << "*";
+}
+cout << endl;
+}
 
-Bài 20. Mũi tên 1.
+for(int i = n - 1; i >= 1; i--) {
+for(int j = 1; j <= n - i; j++) {
+cout << "~";
+}
+for(int j = 1; j <= 2 * i - 1; j++) {
+cout << "*";
+}
+	cout << endl;
+	}
+  return 0;
+}
 
-Input Output
-5 *****
-~~****
-~~~~***
-~~~~~~**
-~~~~~~~~*
-~~~~~~**
-~~~~***
-~~****
-*****
+// Bài 19. Hình thoi 3
+// Input                  Output
+                        12345678910
+// 5                    **********1
+//                      ****~~****2
+//                      ***~~~~***3
+//                      **~~~~~~**4
+//                      *~~~~~~~~*5
+//                      **~~~~~~**6
+//                      ***~~~~***7
+//                      ****~~****8
+//                      **********9
 
-Bài 21. Mũi tên 2
-Input Output
-5 ~~~~*****
-~~~****
-~~***
+#include <iostream>
+#include <iomanip>
+#include <math.h>
+using namespace std;
 
-8
-~**
-*
-~**
-~~***
-~~~****
-~~~~*****
+int main() {
+int n;
+cin >> n;
+for(int i = 1; i <= n; i++) {
+for(int j = 1; j <= 2 * n; j++) {
+	if(j <= n - i + 1 || j >= n + i){
+cout << "*";	
+	} else {
+	cout << "~";
+	}
+}
+cout << endl;
+}
+
+for(int i = n - 1; i >= 1; i--) {
+for(int j = 1; j <= 2 * n; j++) {
+	if(j <= n - i + 1 || j >= n + i){
+cout << "*";	
+	} else {
+	cout << "~";}
+}
+	cout << endl;
+	}
+  return 0;
+}
+// Bài 20. Mũi tên 1.
+
+// Input                   Output
+// 5                       *****
+//                         ~~****
+//                         ~~~~***
+//                         ~~~~~~**
+//                         ~~~~~~~~*
+//                         ~~~~~~**
+//                         ~~~~***
+//                         ~~****
+//                         *****
+
+#include <iostream>
+#include <iomanip>
+#include <math.h>
+using namespace std;
+
+int main() {
+int n;
+cin >> n;
+for(int i = 1; i <= n; i++) {
+for(int j = 1; j <= 2 * (i - 1); j++) {
+	cout << "~";
+}
+for(int j = 1; j <= n - i + 1; j++) {
+	cout << "*";
+}
+cout << endl;
+}
+
+for(int i = n - 1; i >= 1; i--) {
+for(int j = 1; j <= 2 * (i -1); j++) {
+	cout << "~";
+}
+for(int j = 1; j <= n - i + 1; j++) {
+	cout << "*";
+}
+	cout << endl;
+	}
+  return 0;
+}
+// Bài 21. Mũi tên 2
+// Input                   Output
+// 5                       ~~~~*****
+//                         ~~~****
+//                         ~~***
+//                         ~**
+//                         *
+//                         ~**
+//                         ~~***
+//                         ~~~****
+//                         ~~~~*****
+
+#include <iostream>
+#include <iomanip>
+#include <math.h>
+using namespace std;
+
+int main() {
+int n;
+cin >> n;
+for(int i = n; i >= 1; i--) {
+for(int j = 1; j <= i - 1; j++) {
+	cout << "~";
+}
+for(int j = 1; j <= i; j++) {
+	cout << "*";
+}
+cout << endl;
+}
+
+for(int i = 2; i <= n; i++
+) {
+for(int j = 1; j <= i -1; j++) {
+	cout << "~";
+}
+for(int j = 1; j <= i; j++) {
+	cout << "*";
+}
+	cout << endl;
+	}
+  return 0;
+}
+
 
 Phần 2. Number pattern
-Bài 1. Hình chữ nhật số 1
-Input Output
-5 10101
-01010
-10101
-01010
-10101
-
+// Bài 1. Hình chữ nhật số 1
+// Input                   Output
+// 5                       10101
+//                         01010
+//                         10101
+//                         01010
+//                         10101
+#include <iostream>
+#include <iomanip>
+#include <math.h>
+using namespace std;
+int main() {
+int n;
+cin >> n;
+for(int i = 1; i <= n; i++){
+	for(int j = 1; j <= n; j++) {
+	if((i + j) % 2 == 0) {
+	cout << "1";
+	} else {
+		cout << "0";
+	}
+	}
+	cout << endl;
+}
+  return 0;
+}
 Bài 2. Hình chữ nhật số 2
-Input Output
-5 1 2 3 4 5
-2 3 4 5 6
-3 4 5 6 7
-4 5 6 7 8
-5 6 7 8 9
+Input                   Output
+5                       1 2 3 4 5
+                        2 3 4 5 6
+                        3 4 5 6 7
+                        4 5 6 7 8
+                        5 6 7 8 9
 
+		C1				
+#include <iostream>
+#include <iomanip>
+#include <math.h>
+using namespace std;
+int main() {
+int n;
+cin >> n;
+for(int i = 1; i <= n; i++){
+	int cnt = i;
+	for(int j = 1; j <= n; j++) {
+	cout << cnt;
+	++cnt;
+	}
+	cout << endl;
+}
+  return 0;
+}
+        C2
+		#include <iostream>
+#include <iomanip>
+#include <math.h>
+using namespace std;
+int main() {
+int n;
+cin >> n;
+for(int i = 1; i <= n; i++){
+	for(int j = 1; j <= n; j++) {
+	int s = (i + j) - 1;
+	cout << s;
+	}
+	cout << endl;
+}
+  return 0;
+}
 Bài 3. Hình chữ nhật số 3
 
-Input Output
-5 1 2 3 4 5
-6 7 8 9 10
-11 12 13 14 15
-16 17 18 19 20
-21 22 23 24 25
+Input                   Output
+5                       1 2 3 4 5
+                        6 7 8 9 10
+                        11 12 13 14 15
+                        16 17 18 19 20
+                        21 22 23 24 25
 
-Bài 4. Hình chữ nhật số 4
-Input Output
-5 ~~~~1
-~~~22
+#include <iostream>
+#include <iomanip>
+#include <math.h>
+using namespace std;
+int main() {
+int n;
+cin >> n;
+int cnt = 1;
+for(int i = 1; i <= n; i++){
 
-9
-~~333
-~4444
-55555
+	for(int j = 1; j <= n; j++) {
+	cout << cnt;
+	++cnt;
+	}
+	cout << endl;
+}
+  return 0;
+}
 
-Bài 5. Hình chữ nhật số 5
-Input Output
-5 1
-2 6
-3 7 10
-4 8 11 13
-5 9 12 14 15
+// Bài 4. Hình chữ nhật số 4
+// Input           Output
+// 5               ~~~~1
+//                 ~~~22
+//                 ~~333
+//                 ~4444
+//                 55555
 
+#include <iostream>
+#include <iomanip>
+#include <math.h>
+using namespace std;
+int main() {
+int n;
+cin >> n;
+
+for(int i = 1; i <= n; i++){
+for(int j = 1; j <= n; j++) {
+if(j <= n - i){
+cout << "~";
+}else{
+   cout << i;
+}
+}
+cout << endl;	
+}
+  return 0;
+}
+// Bài 5. Hình chữ nhật số 5
+// Input           Output
+// 5               1
+//                 2 6
+//                 3 7 10
+//                 4 8 11 13
+//                 5 9 12 14 15
+
+#include <iostream>
+#include <iomanip>
+#include <math.h>
+using namespace std;
+int main() {
+int n;
+cin >> n;
+
+for(int i = 1; i <= n; i++){
+	int init = i;
+	int cnt = n - 1;
+for(int j = 1; j <= i; j++) {
+cout << init;
+init += cnt;
+--cnt;
+}
+cout << endl;	
+}
+  return 0;
+}
 Bài 6. Hình chữ nhật số 6
-Input Output
-5 4444444
-4333334
-4322234
-4321234
-4322234
-4333334
-4444444
+Input           Output
+5               4444444
+                4333334
+                4322234
+                4321234
+                4322234
+                4333334
+                4444444
 
 Bài 7. Hình chữ nhật số 7
 
-Input Output
-5 5 5 5 5 5
-5 4 4 4 4
-5 4 3 3 3
-5 4 3 2 2
-5 4 3 2 1
+Input           Output
+5             5 5 5 5 5
+              5 4 4 4 4
+              5 4 3 3 3
+              5 4 3 2 2
+              5 4 3 2 1
 
 Bài 8. Hình chữ nhật số 8
-Input Output
-5 1 2 3 4 5
-2 1 2 3 4
-3 2 1 2 3
-4 3 2 1 2
-5 4 3 2 1
-
-10
+Input          Output
+5             1 2 3 4 5
+              2 1 2 3 4
+              3 2 1 2 3
+              4 3 2 1 2
+              5 4 3 2 1
 
 Bài 8. Hình chữ nhật số 9
-Input Output
-5 12345
-23455
-34555
-45555
-55555
+Input          Output
+5             12345
+              23455
+              34555
+              45555
+              55555
 
 Bài 9. Hình tam giác số 1
 Input Output
