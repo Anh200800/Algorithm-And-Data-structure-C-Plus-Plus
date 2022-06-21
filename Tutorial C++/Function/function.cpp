@@ -8,25 +8,60 @@ Số nguyên n (0≤n≤109).
 Output
 In YES nếu n là số nguyên tố, ngược lại in NO.
 Ví dụ
-Input Output
-4 NO
-13 YES
+Input                   Output
+4                         NO
+13                        YES
 
+#include <iostream>
+#include <stdio.h>
+#include <math.h>
+using namespace std;
+
+int prime(int n) {
+for(int i = 2; i <= sqrt(n);i++){
+if(n % i == 0) return 0;
+}
+return n > 1;
+}
+int main() {
+int n;
+cin >> n;
+if(prime(n)) cout << "YES";
+else cout << "NO";
+  return 0;
+}
 Bài 2. Sàng số nguyên tố.
 Input
-Số nguyên n (0≤n≤106
-).
-
+Số nguyên n (0≤n≤106).
 Output
 In ra trên một dòng các số nguyên tố không vượt quá n, mỗi số cách nhau một khoảng
 trắng.
 Ví dụ
+Input                   Output
+4                        2 3
+13                   2 3 5 7 11 13
 
-5
+            c1 
+#include <iostream>
+#include <stdio.h>
+#include <math.h>
+using namespace std;
 
-Input Output
-4 2 3
-13 2 3 5 7 11 13
+int prime(int n) {
+for(int i = 2; i <= sqrt(n);i++){
+if(n % i == 0) return 0;
+}
+return n > 1;
+}
+int main() {
+int n;
+cin >> n;
+for(int i = 0; i<= n; i++){
+if(prime(i)) cout << i;
+}
+  return 0;
+}
+            C2 Eratosthenes
 
 Bài 3. Sàng số nguyên tố trên đoạn.
 Input
