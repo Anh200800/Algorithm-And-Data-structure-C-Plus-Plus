@@ -204,10 +204,10 @@ if(max2==-1e9 - 1) cout << max1 << " " << -1;
 else cout << max1 << " " << max2;
   return 0;
 }
-g. Đếm và liệt kê các số toàn chữ số lẻ trong mảng.
-Input                    Output
-5                          4
-3 5 7 11 23              3 5 7 11
+// g. Đếm và liệt kê các số toàn chữ số lẻ trong mảng.
+// Input                    Output
+// 5                          4
+// 3 5 7 11 23              3 5 7 11
 
 #include <stdio.h>
 #include <math.h>
@@ -243,11 +243,11 @@ cout << b[i] << " ";
   return 0;
 }
 
-h. Cho mảng các số nguyên khác nhau đôi một. Liệt kê các phần tử trong mảng có ít nhất
-2 phần tử khác lớn hơn nó.
-Input                             Output
-5
-3 5 7 11 23                       3 5 7
+// h. Cho mảng các số nguyên khác nhau đôi một. Liệt kê các phần tử trong mảng có ít nhất
+// 2 phần tử khác lớn hơn nó.
+// Input                             Output
+// 5
+// 3 5 7 11 23                       3 5 7
 
 #include <iostream>
 #include <stdio.h>
@@ -375,24 +375,53 @@ cout << "YES";
 } else cout << "NO";
   return 0;
 }
-Bài 2. Mảng tăng.
-Kiểm tra xem mảng cho trước có tăng dần hay không, mảng tăng dần được
-định nghĩa là mảng có phần tử đứng sau lớn hơn phần tử đứng trước nó. Nếu mảng
-tăng dần in ra YES, trường hợp ngược lại in ra NO.
-Input
-Dòng đầu tiên là số lượng phần tử trong mảng n. (1≤n≤106
-).
-Dòng thứ 2 là các phần tử ai trong mảng . (-109≤ai≤109
-).
+// Bài 2. Mảng tăng.
+// Kiểm tra xem mảng cho trước có tăng dần hay không, mảng tăng dần được
+// định nghĩa là mảng có phần tử đứng sau lớn hơn phần tử đứng trước nó. Nếu mảng
+// tăng dần in ra YES, trường hợp ngược lại in ra NO.
+// Input
+// Dòng đầu tiên là số lượng phần tử trong mảng n. (1≤n≤106
+// ).
+// Dòng thứ 2 là các phần tử ai trong mảng . (-109≤ai≤109
+// ).
 
-Output
-In YES nếu mảng tăng dần. NO trong trường hợp ngược lại.
-Ví dụ
-Input Output
-5
-1 2 2 3 5 NO
+// Output
+// In YES nếu mảng tăng dần. NO trong trường hợp ngược lại.
+// Ví dụ
+// Input                  Output
+// 5
+// 1 2 2 3 5                NO
+// Bạn làm thêm với trường hợp mảng giảm.
 
-Bạn làm thêm với trường hợp mảng giảm.
+#include <iostream>
+#include <stdio.h>
+#include <math.h>
+using namespace std;
+int check(int a[], int n){
+for(int i = 0; i < n - 1;i++){
+if(a[i] >= a[i + 1]){
+return 0;
+} 
+}
+return 1;
+}
+int main() {
+  int n;
+  cin >> n;
+  int a[n];
+  for(int i = 0; i < n ; i++){
+  cin >> a[i];
+  }
+if(check(a, n)){
+cout << "YES";
+} else {
+cout << "NO";
+}
+  return 0;
+}
+
+
+
 Bài 3. Số không nhỏ hơn số đứng trước
 Cho một dãy số nguyên dương có n phần tử. Hãy liệt kê số các phần tử trong dãy không
 nhỏ hơn các số đứng trước nó (tính cả phần tử đầu tiên).
@@ -406,10 +435,36 @@ Dòng thứ 2 là các phần tử ai trong mảng . (-109≤ai≤109
 Output
 Kết quả của bài toán.
 Ví dụ
-Input Output
+Input                        Output
 6
-1 2 9 2 0 22 1 2 9 22
+1 2 9 2 0 22                1 2 9 22
 
+                                  C1
+#include <iostream>
+#include <stdio.h>
+#include <math.h>
+using namespace std;
+
+int main() {
+  int n;
+  cin >> n;
+  int a[n];
+  for(int i = 0; i < n ; i++){
+  cin >> a[i];
+  }
+  for(int i = 0; i< n; i++){
+int ok = 1;
+for(int j = 0; j < i; j++){
+if(a[j] > a[i]){
+ok = 0; break;
+}
+}  
+  
+if(ok) {cout << a[i] << " ";}
+}
+  return 0;
+}
+                                  C2
 Bài 4. Lineland
 Tất cả các thành phố của Lineland đều nằm trên trục tọa độ Ox. Do đó, mỗi
 thành
@@ -1515,25 +1570,49 @@ https://codeforces.com/problemset?order=BY_SOLVED_DESC&tags=sortings
 https://drive.google.com/file/d/1KNc55nTaJjzrhSeI4Jmoi5kaVVKFV1NC/view?usp=shar
 ing
 
-PHẦN 3. MẢNG 2 CHIỀU
+                            //  PHẦN 3. MẢNG 2 CHIỀU
 
-Bài 1. Tính tổng các hàng của ma trận
-Cho ma trận có n hàng, m cột, tính tổng các phần tử của từng hàng
-Input
-Dòng đầu tiên là n,m. 1≤n,m≤100.
-N dòng tiếp theo, mỗi dòng có m số nguyên.
-Output
-In ra tổng các phần tử của từng hàng
-Ví dụ
-Input Output
-3 3
-1 2 3
-4 5 6
-7 8 9
+// Bài 1. Tính tổng các hàng của ma trận
+// Cho ma trận có n hàng, m cột, tính tổng các phần tử của từng hàng
+// Input
+// Dòng đầu tiên là n,m. 1≤n,m≤100.
+// N dòng tiếp theo, mỗi dòng có m số nguyên.
+// Output
+// In ra tổng các phần tử của từng hàng
+// Ví dụ
+// Input                                Output
+// 3 3
+// 1 2 3                                6
+// 4 5 6                                15
+// 7 8 9                                24
 
-6
-15
-24
+#include <iostream>
+#include <stdio.h>
+#include <math.h>
+using namespace std;
+
+int main() {
+  int n, m;
+  cin >> n >> m;
+  int a[n][m];
+  for(int i = 0; i < n ; i++){
+  	 for(int j= 0;j < m; j++){
+  	cin >> a[i][j];
+  }
+  }
+
+ for(int i = 0; i < n ; i++){
+ 	int sum = 0;
+  	 for(int j = 0; j < m; j++){
+  sum += a[i][j];
+  }
+  cout << sum << endl;
+  }
+
+  return 0;
+}
+
+
 
 Bài 2. Tính tổng các cột của m trận
 Cho ma trận có n hàng, m cột, tính tổng các phần tử của từng cột
@@ -1543,15 +1622,13 @@ N dòng tiếp theo, mỗi dòng có m số nguyên.
 Output
 In ra tổng các phần tử của từng cột
 Ví dụ
-Input Output
+Input                       Output
 3 3
-1 2 3
-4 5 6
-7 8 9
+1 2 3                         12
+4 5 6                         15
+7 8 9                         18
 
-12
-15
-18
+
 Bài 3. Tìm hàng có nhiều số nguyên tố nhất
 Cho ma trận có n hàng, m cột, hãy tìm hàng có nhiều số nguyên tố nhất
 Input
