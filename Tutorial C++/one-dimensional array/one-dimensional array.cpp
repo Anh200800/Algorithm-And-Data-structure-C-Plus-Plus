@@ -493,124 +493,378 @@ if(ok) {cout << a[i] << " ";}
   return 0;
 }
                                   C2
-Bài 4. Lineland
-Tất cả các thành phố của Lineland đều nằm trên trục tọa độ Ox. Do đó, mỗi
-thành
-phố được liên kết với vị trí xi - tọa độ trên trục Ox. Không có hai thành phố được
-đặt tại một điểm.
-Cư dân Lineland thích gửi thư cho nhau. Một người chỉ có thể gửi thư nếu người
-nhận sống ở một thành phố khác.
-Chi phí gửi thư chính xác bằng khoảng cách giữa thành phố của người gửi và thành
-phố của người nhận.
-Đối với mỗi thành phố, hãy tính hai giá trị mini và maxi, trong đó mini là chi phí tối
-thiểu để gửi thư từ thành phố thứ i đến một thành phố khác và maxi là chi phí tối đa
-để gửi thư từ thành phố thứ i đến một số thành phố khác
-Input
-Dòng đầu tiên của đầu vào chứa số nguyên n (2<= n ≤ 10^5) - số lượng thành phố
-trong Lineland. Dòng thứ hai chứa chuỗi n số nguyên khác nhau x1, x2, ..., xn (-
-10^9<= xi <=10^9), trong đó xi là tọa độ x của thành phố thứ i. Tất cả các xi là
-khác biệt và theo thứ tự tăng dần.
-Output
+#include <iostream>
+#include <stdio.h>
+#include <math.h>
+using namespace std;
 
-In n dòng, dòng thứ i phải chứa hai số nguyên mini, maxi, cách nhau bởi một
-khoảng trắng, trong đó mini là chi phí tối thiểu để gửi thư từ thành phố thứ i và
-maxi là chi phí tối đa để gửi thư từ thành phố thứ i.
-Ví dụ
-Input Output
-4
--5 -2 2 7
 
-3 12
-3 9
-4 7
-5 12
 
-Bài 5. Vé xem phim
-Bộ phim "Die Hard" mới vừa được phát hành! Có n người tại phòng vé rạp chiếu
-phim đứng thành một hàng lớn. Mỗi người trong số họ có một hóa đơn 100, 50
-hoặc 25 rúp. Một vé "Die Hard" có giá 25 rúp. Nhân viên đặt phòng có thể bán vé
-cho mỗi người và trả tiền thừa nếu ban đầu anh ta không có tiền và bán vé theo
-đúng thứ tự mọi người trong hàng không?
-Input
-Dòng đầu tiên chứa số nguyên n (1 <= n<= 10^5) - số người trong hàng. Dòng tiếp
-theo chứa n số nguyên, mỗi số bằng 25, 50 hoặc 100 - giá trị của các hóa đơn mà
-mọi người có.
-Output
-In "YES" (không có dấu ngoặc kép) nếu nhân viên đặt phòng có thể bán vé cho mỗi
-người và có thể trả tiền thừa. Nếu không thì in "NO".
-Ví dụ
-Input
-4
-25 25 50 50
-Output
-YES
+int main() {
+int n;
+cin >> n;
+int a[n];
+for(int i=0; i< n; i++){
+cin >> a[i];
+}
+int max = a[0];
+for(int i = 0; i < n; i++){
+if(a[i] >= max) {
+cout << a[i] << " ";
+}
+if(a[i] > max) max = a[i];
+}
+  return 0;
+}
+  
+// Bài 4. Lineland
+// Tất cả các thành phố của Lineland đều nằm trên trục tọa độ Ox. Do đó, mỗi
+// thành
+// phố được liên kết với vị trí xi - tọa độ trên trục Ox. Không có hai thành phố được
+// đặt tại một điểm.
+// Cư dân Lineland thích gửi thư cho nhau. Một người chỉ có thể gửi thư nếu người
+// nhận sống ở một thành phố khác.
+// Chi phí gửi thư chính xác bằng khoảng cách giữa thành phố của người gửi và thành
+// phố của người nhận.
+// Đối với mỗi thành phố, hãy tính hai giá trị mini và maxi, trong đó mini là chi phí tối
+// thiểu để gửi thư từ thành phố thứ i đến một thành phố khác và maxi là chi phí tối đa
+// để gửi thư từ thành phố thứ i đến một số thành phố khác
+// Input
+// Dòng đầu tiên của đầu vào chứa số nguyên n (2<= n ≤ 10^5) - số lượng thành phố
+// trong Lineland. Dòng thứ hai chứa chuỗi n số nguyên khác nhau x1, x2, ..., xn (-
+// 10^9<= xi <=10^9), trong đó xi là tọa độ x của thành phố thứ i. Tất cả các xi là
+// khác biệt và theo thứ tự tăng dần.
+// Output
 
-Bài 6. Cặp số nguyên tố cùng nhau
-Cho một dãy số nguyên dương có n phần tử. Hãy đếm các cặp số nguyên tố cùng nhau
-trong mảng.
-Input
-Dòng đầu tiên là số lượng phần tử trong mảng n. (1≤n≤106
-).
-Dòng thứ 2 là các phần tử ai trong mảng . (1≤ai≤109
-).
+// In n dòng, dòng thứ i phải chứa hai số nguyên mini, maxi, cách nhau bởi một
+// khoảng trắng, trong đó mini là chi phí tối thiểu để gửi thư từ thành phố thứ i và
+// maxi là chi phí tối đa để gửi thư từ thành phố thứ i.
+// Ví dụ
+// Input                                     Output
+// 4                                          3 12
+// -5 -2 2 7                                  3  9
+//                                            4  7
+//                                            5 12
+#include <iostream>
+#include <stdio.h>
+#include <math.h>
+using namespace std;
+int min(int a, int b){
+return a < b ? a : b;
+}
+int max(int a, int b){
+return a > b ? a : b;
+}
 
-Output
-Kết quả của bài toán.
-Ví dụ
-Input Output
-5
-2 4 8 3 6 3
 
-Bài 7. Tích lớn nhất của 2 số trong mảng
-Cho một dãy số nguyên có n phần tử. Tìm tích lớn nhất của 2 số trong mảng.
-Input
-Dòng đầu tiên là số lượng phần tử trong mảng n. (1≤n≤106
-).
+int main() {
+int n;
+cin >> n;
+int a[n];
+for(int i=0; i < n; i++){
+cin >> a[i];
+}
+for(int i = 0; i < n; i++){
+if(i == 0){cout << a[1] - a[0] << a[n - 1] - a[0]  << endl;}
+else if(i == n-1){cout << a[n-1]-a[n-2] << a[n-1]-a[0]  <<  endl;}
+else {cout << min(a[i]-a[i-1], a[i+1] -a[i]) << max(a[i] - a[0], a[n-1] -a[i]) << endl;}
+}
+  return 0;
+}
 
-Dòng thứ 2 là các phần tử ai trong mảng . (-10
-9≤ai≤109
-).
+// Bài 5. Vé xem phim
+// Bộ phim "Die Hard" mới vừa được phát hành! Có n người tại phòng vé rạp chiếu
+// phim đứng thành một hàng lớn. Mỗi người trong số họ có một hóa đơn 100, 50
+// hoặc 25 rúp. Một vé "Die Hard" có giá 25 rúp. Nhân viên đặt phòng có thể bán vé
+// cho mỗi người và trả tiền thừa nếu ban đầu anh ta không có tiền và bán vé theo
+// đúng thứ tự mọi người trong hàng không?
+// Input
+// Dòng đầu tiên chứa số nguyên n (1 <= n<= 10^5) - số người trong hàng. Dòng tiếp
+// theo chứa n số nguyên, mỗi số bằng 25, 50 hoặc 100 - giá trị của các hóa đơn mà
+// mọi người có.
+// Output
+// In "YES" (không có dấu ngoặc kép) nếu nhân viên đặt phòng có thể bán vé cho mỗi
+// người và có thể trả tiền thừa. Nếu không thì in "NO".
+// Ví dụ
+// Input                                         Output
+// 4                                             YES
+// 25 25 50 50
 
-Output
-Kết quả của bài toán.
-Ví dụ
-Input Output
-5
-2 4 8 3 6 48
+#include <iostream>
+#include <stdio.h>
+#include <math.h>
+using namespace std;
+int check(int a[], int n){
+int c25 = 0, c50 = 0;
+for(int i = 0; i < n; i++){
+if(a[i] == 25) --c25;
+else if(a[i] == 50) {
+if(c25 == 0) return 0;
+--c25;
+++c50;
+}
+else {
+if(c25 == 0 || (c25 * 25 + c25 * 50 < 75)){
+return 0;
+}
+if(c50 != 0){
+--c25;
+--c50;
+} else {
+c25 -= 3;
+}
+}
+}
+return 1;
+}
 
-Bạn làm thêm tìm tích nhỏ nhất của 2 số trong mảng.
-Bài 8. Dãy con liên tiếp các phần tử kề nhau đều khác nhau
-Cho một dãy số nguyên có n phần tử. Tìm dãy con liên tiếp có các phần tử liền kề khác
-nhau có độ dài lớn nhất.
-Input
-Dòng đầu tiên là số lượng phần tử trong mảng n. (1≤n≤106
-).
-Dòng thứ 2 là các phần tử ai trong mảng . (-109≤ai≤109
-).
 
-Output
-Kết quả của bài toán.
-Ví dụ
-Input Output
-10
-1 2 3 3 3 4 5 2 1 3 6
+int main() {
+int n;
+cin >> n;
+int a[n];
+for(int i=0; i < n; i++){
+cin >> a[i];
+}
+if(check(a,n)) {
+cout << "YES";
+}
+else {cout << "NO";}
+  return 0;
+}
+// Bài 6. Cặp số nguyên tố cùng nhau
+// Cho một dãy số nguyên dương có n phần tử. Hãy đếm các cặp số nguyên tố cùng nhau
+// trong mảng.
+// Input
+// Dòng đầu tiên là số lượng phần tử trong mảng n. (1≤n≤106
+// ).
+// Dòng thứ 2 là các phần tử ai trong mảng . (1≤ai≤109
+// ).
 
-Tìm dãy con liên tiếp có các phần tử giống nhau có độ dài dài nhất.
-Input Output
-10
-1 2 3 3 3 4 5 2 1 3 3
+// Output
+// Kết quả của bài toán.
+// Ví dụ
+// Input                             Output
+// 5
+// 2 4 8 3 6                           3
 
-Tìm dãy con liên tiếp có 2 phần tử liền kề nhau trái dấu có độ dài dài nhất.
-Input Output
-10
-1 2 3 3 3 4 5 2 1 -3 2
+#include <iostream>
+#include <stdio.h>
+#include <math.h>
+using namespace std;
+int gcd(int a, int b){
+if(b == 0) return a;
+return gcd(b, a%b);
+}
 
-Tìm dãy con tăng liên tiếp có độ dài dài nhất.
+int main() {
+int n;
+cin >> n;
+int a[n];
+for(int i=0; i < n; i++){
+cin >> a[i];
+}
+long long cnt = 0;
+for(int i =0; i<n; i++){
+for(int j = i + 1; j < n; j++){
+if(gcd(a[i], a[j]) == 1) ++cnt;
+}
+}
+cout << cnt;
+  return 0;
+}
+// Bài 7. Tích lớn nhất của 2 số trong mảng
+// Cho một dãy số nguyên có n phần tử. Tìm tích lớn nhất của 2 số trong mảng.
+// Input
+// Dòng đầu tiên là số lượng phần tử trong mảng n. (1≤n≤106
+// ).
 
-Input Output
-10
-1 2 3 3 3 4 5 2 1 -3 3
+// Dòng thứ 2 là các phần tử ai trong mảng . (-10
+// 9≤ai≤109
+// ).
 
+// Output
+// Kết quả của bài toán.
+// Ví dụ
+// Input                              Output
+// 5
+// 2 4 8 3 6                            48
+// Bạn làm thêm tìm tích nhỏ nhất của 2 số trong mảng.
+
+#include <iostream>
+#include <stdio.h>
+#include <math.h>
+using namespace std;
+long long max(long long a, long long b){
+return a < b ? b : a;
+}
+
+int main() {
+int n;
+cin >> n;
+int a[n];
+for(int i=0; i < n; i++){
+cin >> a[i];
+}
+int max1 = -1e9-1, max2 = -1e9-1, min1=1e9+1, min2=1e9+1;
+for(int i =0; i<n; i++){
+if(a[i] > max1){
+max2 = max1;
+max1 = a[i];
+} else if(a[i] > max2){
+max2 = a[i];
+} if(a[i] < min1){
+min2 = min1;
+min1 = a[i];
+} else if(a[i] < min2){
+min2 = a[i];
+}
+}
+long long res = max(1ll*max1*max2,1ll*min1*min2);
+cout << res;
+  return 0;
+}
+// Bài 8. Dãy con liên tiếp các phần tử kề nhau đều khác nhau
+// Cho một dãy số nguyên có n phần tử. Tìm dãy con liên tiếp có các phần tử liền kề khác
+// nhau có độ dài lớn nhất.
+// Input
+// Dòng đầu tiên là số lượng phần tử trong mảng n. (1≤n≤106
+// ).
+// Dòng thứ 2 là các phần tử ai trong mảng . (-109≤ai≤109
+// ).
+
+// Output
+// Kết quả của bài toán.
+// Ví dụ
+// Input                               Output
+// 10
+// 1 2 3 3 3 4 5 2 1 3                 6
+
+#include <iostream>
+#include <stdio.h>
+#include <math.h>
+using namespace std;
+long long max(long long a, long long b){
+return a < b ? b : a;
+}
+
+int main() {
+int n;
+cin >> n;
+int a[n];
+for(int i=0; i < n; i++){
+cin >> a[i];
+}
+int res = 0, cnt = 1;
+for(int i =1; i<n; i++){
+if(a[i] != a[i-1]){ ++cnt;}
+ else {
+cnt = 1;
+}
+res = max(res, cnt);
+}
+cout << res;
+  return 0;
+}
+
+
+// Tìm dãy con liên tiếp có các phần tử giống nhau có độ dài dài nhất.
+// Input                          Output
+// 10
+// 1 2 3 3 3 4 5 2 1 3              3
+
+#include <iostream>
+#include <stdio.h>
+#include <math.h>
+using namespace std;
+long long max(long long a, long long b){
+return a < b ? b : a;
+}
+
+int main() {
+int n;
+cin >> n;
+int a[n];
+for(int i=0; i < n; i++){
+cin >> a[i];
+}
+int res = 0, cnt = 1;
+for(int i =1; i<n; i++){
+if(a[i] == a[i-1]){ ++cnt;}
+ else {
+cnt = 1;
+}
+res = max(res, cnt);
+}
+cout << res;
+  return 0;
+}
+
+// Tìm dãy con liên tiếp có 2 phần tử liền kề nhau trái dấu có độ dài dài nhất.
+// Input                                 Output
+// 10
+// 1 2 3 3 3 4 5 2 1 -3                    2
+
+#include <iostream>
+#include <stdio.h>
+#include <math.h>
+using namespace std;
+long long max(long long a, long long b){
+return a < b ? b : a;
+}
+
+int main() {
+int n;
+cin >> n;
+int a[n];
+for(int i=0; i < n; i++){
+cin >> a[i];
+}
+int res = 0, cnt = 1;
+for(int i =1; i<n; i++){
+if(a[i] * a[i-1] < 0){ ++cnt;}
+ else {
+cnt = 1;
+}
+res = max(res, cnt);
+}
+if(res==1){
+  cout << 0;
+} else {cout << res;}
+  return 0;
+}
+// Tìm dãy con tăng liên tiếp có độ dài dài nhất.
+
+// Input                            Output
+// 10
+// 1 2 3 3 3 4 5 2 1 -3               3
+
+#include <iostream>
+#include <stdio.h>
+#include <math.h>
+using namespace std;
+long long max(long long a, long long b){
+return a < b ? b : a;
+}
+
+int main() {
+int n;
+cin >> n;
+int a[n];
+for(int i=0; i < n; i++){
+cin >> a[i];
+}
+int res = 0, cnt = 1;
+for(int i =1; i<n; i++){
+if(a[i] > a[i-1] ){ ++cnt;}
+ else {
+cnt = 1;
+}
+res = max(res, cnt);
+}
+cout << res;
+  return 0;
+}
 Bài 9. Dãy tăng
 Một đoạn tăng trong một dãy số nguyên là một đoạn liên tiếp trong dãy sao cho phần từ
 phía sau lớn hơn phần từ phía trước. Cho dãy số với n phần tử (n không quá 100, các phần
@@ -623,26 +877,21 @@ Output: Với mỗi bộ test, ghi ra thứ tự bộ test. Sau đó là 1 dòng
 nhất. Tiếp theo là một số dòng ghi lần lượt các đoạn tăng dài nhất, từ trái qua phải trong
 dãy ban đầu.
 Ví dụ:
-Input Output
-2
-16
+Input                                           Output
+2                                               Test 1:
 
-2 3 5 7 4 5 8 9 7 11 8 9 6 7 10 12
-12
+16                                              4
+ 
+2 3 5 7 4 5 8 9 7 11 8 9 6 7 10 12              2 3 5 7
 
-2 3 2 3 2 3 2 2 2 3 4 1
+12                                              4 5 8 9
 
-Test 1:
-4
+2 3 2 3 2 3 2 2 2 3 4 1                         6 7 10 12
 
-2 3 5 7
-4 5 8 9
+                                                Test 2:
 
-6 7 10 12
-Test 2:
-
-3
-2 3 4
+                                                3
+                                                2 3 4
 
 Bài 10. Cặp số bằng nhau
 Viết chương trình đếm các cặp số bằng nhau liên tiếp trong dãy số nguyên.
