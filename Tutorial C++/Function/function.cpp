@@ -1,25 +1,26 @@
-Number Theory
+// Number Theory
 
-Phần 1. Các bài toán về số nguyên tố
-Bài 1. Kiểm tra số nguyên tố
-Input
-Số nguyên n (0≤n≤109).
+// Phần 1. Các bài toán về số nguyên tố
+// Bài 1. Kiểm tra số nguyên tố
+// Input
+// Số nguyên n (0≤n≤109).
 
-Output
-In YES nếu n là số nguyên tố, ngược lại in NO.
-Ví dụ
-Input                   Output
-4                         NO
-13                        YES
+// Output
+// In YES nếu n là số nguyên tố, ngược lại in NO.
+// Ví dụ
+// Input                   Output
+// 4                         NO
+// 13                        YES
 
 #include <iostream>
 #include <stdio.h>
 #include <math.h>
 using namespace std;
 
-int prime(int n) {
+bool prime(int n) {
 for(int i = 2; i <= sqrt(n);i++){
-if(n % i == 0) return 0;
+if(n % i == 0) 
+return false;
 }
 return n > 1;
 }
@@ -30,16 +31,17 @@ if(prime(n)) cout << "YES";
 else cout << "NO";
   return 0;
 }
-Bài 2. Sàng số nguyên tố.
-Input
-Số nguyên n (0≤n≤106).
-Output
-In ra trên một dòng các số nguyên tố không vượt quá n, mỗi số cách nhau một khoảng
-trắng.
-Ví dụ
-Input                   Output
-4                        2 3
-13                   2 3 5 7 11 13
+
+// Bài 2. Sàng số nguyên tố.
+// Input
+// Số nguyên n (0≤n≤106).
+// Output
+// In ra trên một dòng các số nguyên tố không vượt quá n, mỗi số cách nhau một khoảng
+// trắng.
+// Ví dụ
+// Input                   Output
+// 4                        2 3
+// 13                   2 3 5 7 11 13
 
             c1 
 #include <iostream>
@@ -47,9 +49,10 @@ Input                   Output
 #include <math.h>
 using namespace std;
 
-int prime(int n) {
+bool prime(int n) {
 for(int i = 2; i <= sqrt(n);i++){
-if(n % i == 0) return 0;
+if(n % i == 0) 
+return false;
 }
 return n > 1;
 }
@@ -57,107 +60,318 @@ int main() {
 int n;
 cin >> n;
 for(int i = 0; i<= n; i++){
-if(prime(i)) cout << i;
+if(prime(i)) cout << i << " ";
 }
   return 0;
 }
             C2 Eratosthenes
 
-Bài 3. Sàng số nguyên tố trên đoạn.
-Input
-2 số nguyên không âm a, b(0≤a≤b≤109
-, b-a≤105
-).
+#include <iostream>
+#include <stdio.h>
+#include <math.h>
+using namespace std;
 
-Output
-In ra các số nguyên tố trong đoạn từ a tới b (Chú ý lấy cả 2 cận).
-Ví dụ
-Input Output
-4 20 5 7 11 13 17 19
-1 5 2 3 5
+bool prime[1000001];
 
-Bài 4. Kiểm tra số nguyên tố 2.
-Input
-Dòng đầu tiên là số lượng test case T. (1≤T≤1000).
-Mỗi test case là một số nguyên n (0≤n≤106
-).
+void sieve(){
+for(int i = 0; i<= 1000000; i++){
+prime[i] = true;
+}
+prime[0]  = false;
+prime[1]  = false;
+for(int i = 2; i <= 1000; i++){
+if(prime[i]){
+for(int j = i * i; j <= 1000000; j +=i){
+prime[j] = 0;
+}
+}
+}
+}
 
-Output
-In ra kết quả mỗi test case trên một dòng. In YES nếu n là số nguyên tố, ngược lại in NO.
-Ví dụ
-Input Output
-4
-2 YES
+int main() {
+	sieve();
+    int n;
+    cin >> n;
+    for(int i = 0; i <= n; i++){
+	if(prime[i]){
+	cout << i << " ";
+	}
+	}
+  return 0;
+}
+// Bài 3. Sàng số nguyên tố trên đoạn.
+// Input
+// 2 số nguyên không âm a, b(0≤a≤b≤109
+// , b-a≤105
+// ).
 
-6
+// Output
+// In ra các số nguyên tố trong đoạn từ a tới b (Chú ý lấy cả 2 cận).
+// Ví dụ
+// Input                                  Output
+// 4 20                                5 7 11 13 17 19
+// 1 5                                     2 3 5
 
-3
-20
-188
+#include <iostream>
+#include <stdio.h>
+#include <math.h>
+using namespace std;
 
-YES
-NO
-NO
+int max(int a, int b){
+  if(a > b){return a;}
+  else {return b;}
+}
+void sieve(int l, int r){
+int prime[r - 1 + 1];
+for(int i = 0; i <= r -l+1;i++){
+ prime[i] = 1;
+}
+for(int i = 2; i <= sqrt(r); i++){
+  for(int j = max(i * i, (l + i -1)/i * i); j <= r; j += i){
+  prime[j-1] = 0;
+  }
+}
+for(int i = max(l,2); i <= r; i++){
+if(prime[i-1]){
+cout << i << " ";
+}
+}
+}
+int main(){
+int l, r;
+cin >> l >> r;
+sieve(l, r);
+}
 
-Bài 5. Số nguyên tố và chữ số nguyên tố
-Viết chương trình đếm xem trong đoạn [a,b] có bao nhiêu số là số nguyên tố và tất cả các
-chữ số của nó cũng là số nguyên tố.
-Input
-Dòng đầu ghi số bộ test
-Mỗi bộ test ghi 2 số a, b (1<a<b<106
-)
+// Bài 4. Kiểm tra số nguyên tố 2.
+// Input
+// Dòng đầu tiên là số lượng test case T. (1≤T≤1000).
+// Mỗi test case là một số nguyên n (0≤n≤106
+// ).
+// Output
+// In ra kết quả mỗi test case trên một dòng. In YES nếu n là số nguyên tố, ngược lại in NO.
+// Ví dụ
+// Input                         Output
+// 4
+// 2                             YES
+// 3                             YES
+// 20                            NO
+// 188                           NO
 
-Output
-Với mỗi bộ test, ghi ra số lượng số thỏa mãn trên một dòng.
-Ví dụ
-Input Output
+                                 C1
+#include <iostream>
+#include <stdio.h>
+#include <math.h>
+using namespace std;
 
-2
-10 100
-1234 5678
+bool nt(int n){
+for(int i = 2; i <= sqrt(n); i++){
+if(n % i == 0){return false;}
+}
+ return n > 1;
+}
+int main(){
+int t;
+cin >> t;
+while(t--){
+int n;
+cin >> n;
+if(nt(n)){
+cout << "YES" <<endl;}
+else {cout << "NO" <<endl;}
+}
+}
+                                      C2
+#include <iostream>
+#include <stdio.h>
+#include <math.h>
+using namespace std;
 
-4
-26
+int prime[1000001];
 
-Bài 6. Liệt kê N số nguyên tố đầu tiên
-Viết chương trình liệt kê N số nguyên tố đầu tiên với N là một số nguyên dương không quá
-105
-.
+void sieve(){
+for(int i = 0; i<= 1000000; i++){
+prime[i] = 1;
+}
+prime[0]=prime[1] = 0;
+for(int i =2; i<= 1000; i++){
+if(prime[i]){
+for(int j = i * i; j <= 1000000; j += i){
+prime[j] = 0;
+}
+}
+}
+}
 
-7
+int main(){
+	sieve();
+int t;
+cin >> t;
+while(t--){
+int n;
+cin >> n;
+if(prime[n]){
+cout << "YES" <<endl;}
+else {cout << "NO" <<endl;}
+}
+}
+                                    
+// Bài 5. Số nguyên tố và chữ số nguyên tố
+// Viết chương trình đếm xem trong đoạn [a,b] có bao nhiêu số là số nguyên tố và tất cả các
+// chữ số của nó cũng là số nguyên tố.
+// Input
+// Dòng đầu ghi số bộ test
+// Mỗi bộ test ghi 2 số a, b (1<a<b<106
+// )
 
-Input
-Dữ liệu vào chỉ có duy nhất một số N.
-Output
-Kết quả ghi mỗi số nguyên tố trên một dòng, theo thứ tự từ nhỏ đến lớn.
-Ví dụ
-Input Output
-5 2
-3
-5
-7
-11
+// Output
+// Với mỗi bộ test, ghi ra số lượng số thỏa mãn trên một dòng.
+// Ví dụ
+// Input                   Output
+// 2
+// 10 100                   4
+// 1234 5678                26
 
-Bài 7. Cặp số nguyên tố.
-Cho số nguyên dương chẵn N>2. Hãy liệt kê các cặp số nguyên tố p, q có tổng đúng bằng
-N. Ví dụ N = 6 ta có 1 cặp số nguyên tố là 3 + 3 =6.
-Input
-Dòng đầu tiên đưa vào số lượng bộ test T.
-Những dòng kế tiếp đưa vào các bộ test. Mỗi bộ test là một số chẵn N.
-T, N thỏa mãn ràng buộc : 1≤T≤100; 4≤N≤10000.
-Output
-Đưa ra kết quả mỗi test theo từng dòng.
+#include <iostream>
+#include <stdio.h>
+#include <math.h>
+using namespace std;
 
-8
+int prime[1000001];
 
-Ví dụ
-Input Output
-2
-4
-6
+void sieve(){
+for(int i = 0; i<= 1000000; i++){
+prime[i] = 1;
+}
+prime[0]=prime[1] = 0;
+for(int i =2; i<= 1000; i++){
+if(prime[i]){
+for(int j = i * i; j <= 1000000; j += i){
+prime[j] = 0;
+}
+}
+}
+}
 
-2 2
-3 3
+bool digitPrime(int n){
+while(n){
+int r = n % 10;
+if(r!=2 && r!=3 && r!=5 && r!=7){
+return false;
+}
+n /= 10;
+}
+return true;
+}
+int main(){
+	sieve();
+int t;
+cin >> t;
+while(t--){
+int a, b;
+cin >> a >> b;
+int cnt = 0;
+for(int i=a; i<= b; i++){
+	if(prime[i] && digitPrime(i))
+	++cnt;
+}
+cout << cnt;
+}
+}
+
+// Bài 6. Liệt kê N số nguyên tố đầu tiên
+// Viết chương trình liệt kê N số nguyên tố đầu tiên với N là một số nguyên dương không quá
+// 10^5
+
+// Input
+// Dữ liệu vào chỉ có duy nhất một số N.
+// Output
+// Kết quả ghi mỗi số nguyên tố trên một dòng, theo thứ tự từ nhỏ đến lớn.
+// Ví dụ
+// Input                                Output
+// 5                                      2
+//                                        3
+//                                        5 
+//                                        7
+//                                        11
+C1
+#include <iostream>
+#include <stdio.h>
+#include <math.h>
+using namespace std;
+
+bool prime(int n){
+for(int i=2; i <=sqrt(n); i++){
+if(n % i == 0){
+return false;
+}
+}
+return n > 1;
+
+}
+
+int main(){
+int n;
+cin >> n;
+int i = 0, cnt = 0;
+while(cnt < n){
+if(prime(i)){
+cout << i << endl;
+++cnt;
+}
+++i;
+}
+}
+C2 
+
+#include <iostream>
+#include <stdio.h>
+#include <math.h>
+using namespace std;
+
+
+
+int prime[10000001];
+void sieve(){
+for(int i = 0; i<=10000000; i++){
+prime[i] = 1;
+}
+prime[0] = prime[1] = 0;
+for(int i = 2; i <= sqrt(10000000); i++){
+if(prime[i]){
+for(int j = i * i; j <= 10000000; j+=i){
+prime[j]=0;
+}
+}
+}
+}
+int main(){
+int n;
+cin >> n;
+int i = 0, cnt = 0;
+sieve();
+while(cnt < n){
+if(prime[i]){
+cout << i << endl;
+++cnt;
+}
+++i;
+}
+}
+// Bài 7. Cặp số nguyên tố.
+// Cho số nguyên dương chẵn N>2. Hãy liệt kê các cặp số nguyên tố p, q có tổng đúng bằng
+// N. Ví dụ N = 6 ta có 1 cặp số nguyên tố là 3 + 3 =6.
+// Input
+// Dòng đầu tiên đưa vào số lượng bộ test T.
+// Những dòng kế tiếp đưa vào các bộ test. Mỗi bộ test là một số chẵn N.
+// T, N thỏa mãn ràng buộc : 1≤T≤100; 4≤N≤10000.
+// Output
+// Đưa ra kết quả mỗi test theo từng dòng.
+// Ví dụ
+// Input                          Output
+// 2
+// 4                              2 2
+// 6                              3 3
 
 Bài 8. Số thuần nguyên tố.
 Một số được coi là thuần nguyên tố nếu nó là số nguyên tố, tất cả các chữ số là nguyên tố
